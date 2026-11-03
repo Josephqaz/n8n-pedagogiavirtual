@@ -1,0 +1,18 @@
+# n8n local. La versión de n8n se fija solo aquí.
+services:
+  n8n:
+    image: n8nio/n8n:2.45.7
+    env_file: .env
+    environment:
+      - TZ=America/Bogota
+      - N8N_SECURE_COOKIE=false
+    ports:
+      - "5678:5678"
+    volumes:
+      - n8n-datos:/home/node/.n8n
+      - ./flujos:/home/node/flujos
+      - ./scripts:/home/node/scripts:ro
+    restart: unless-stopped
+
+volumes:
+  n8n-datos:

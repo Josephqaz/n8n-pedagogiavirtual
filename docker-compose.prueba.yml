@@ -1,0 +1,17 @@
+# Segunda instancia vacía para probar importaciones y el despliegue sin tocar la de trabajo.
+# Uso: docker compose -f docker-compose.prueba.yml up -d   (puerto 5679)
+services:
+  n8n-prueba:
+    image: n8nio/n8n:2.45.7
+    environment:
+      - N8N_ENCRYPTION_KEY=clave-solo-para-pruebas
+      - GENERIC_TIMEZONE=America/Bogota
+      - N8N_SECURE_COOKIE=false
+    ports:
+      - "5679:5678"
+    volumes:
+      - n8n-prueba-datos:/home/node/.n8n
+      - ./:/repo:ro
+
+volumes:
+  n8n-prueba-datos:

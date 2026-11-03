@@ -1,0 +1,8 @@
+.env
+*.log
+.tmp/
+graphify-out/
+.superpowers/
+
+# Documentos sueltos en la raíz, no van al repositorio público
+/*.pdf
